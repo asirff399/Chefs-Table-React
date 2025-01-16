@@ -2,7 +2,7 @@ import { FaSearch } from "react-icons/fa";
 import { FiMessageCircle } from "react-icons/fi";
 const Banner = () => {
     return (
-        <div className="w-[1320] h-[600px] mx-auto rounded-2xl bg-[url('images/close-up-person-cooking_23-2150980270.jpg')] bg-no-repeat bg-cover">
+        <div className="w-[1320] h-[600px] mb-11 mx-auto rounded-2xl bg-[url('images/close-up-person-cooking_23-2150980270.jpg')] bg-no-repeat bg-cover">
             <div className="w-4/6 mx-auto h-full flex flex-col justify-center items-center gap-5">
                 <div className="text-center">
                     <h1 className="text-6xl text-white leading-normal font-bold">Discover an exceptional cooking class tailored for you!</h1>
