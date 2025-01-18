@@ -1,15 +1,23 @@
 import { useEffect, useState } from "react";
 import Order from "../Order/Order";
 import Recipe from "../Recipe/Recipe";
+import { addToLS} from "../../Utilities/localStorage";
 
 const Recipes = () => {
     const [recipes,setRecipes] = useState([])
+    const [wtcook,setWtcook] = useState([])
 
     useEffect(()=>{
         fetch('recipe.json')
         .then(res => res.json())
         .then(data => setRecipes(data))
     },[])
+
+    const handleWantToCook = (wcook) =>{
+        const newWtcook = [...wtcook,wcook]
+        setWtcook(newWtcook)
+        addToLS(wcook.recipe_id)
+    }
 
     return (
         <div>
@@ -21,12 +29,17 @@ const Recipes = () => {
                 <div className="col-span-7">
                     <div className="grid grid-cols-12 gap-3">
                         {
-                            recipes.map(recipe => <Recipe key={recipe.recipe_id} recipe={recipe}></Recipe> )
+                            recipes.map(recipe => 
+                                <Recipe 
+                                    key={recipe.recipe_id} 
+                                    recipe={recipe} 
+                                    handleWantToCook={handleWantToCook}
+                                ></Recipe> )
                         }
                     </div>
                 </div>
                 <div className="col-span-5">
-                    <Order></Order>
+                    <Order ></Order>
                 </div>
             </div>
         </div>

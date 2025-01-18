@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'; 
 import { GiAlarmClock } from "react-icons/gi";
 
-const Recipe = ({recipe}) => {
+const Recipe = ({recipe,handleWantToCook}) => {
     const {recipe_name,short_description,ingredients,preparing_time,calories,recipe_image} = recipe;
     return (
         <div className='col-span-6 border-2 border-slate-200 rounded-xl p-3'>
@@ -26,13 +26,14 @@ const Recipe = ({recipe}) => {
                     <p className='text-sm flex items-center gap-1'><GiAlarmClock /> {preparing_time}</p>
                     <p className='text-sm'>{calories}</p>
                 </div>
-                <button className='py-3 px-5 bg-green-400 rounded-full mt-4 font-semibold'>Want to cook</button>
+                <button onClick={() =>handleWantToCook(recipe)} className='py-3 px-5 bg-green-400 rounded-full mt-4 font-semibold'>Want to cook</button>
             </div>
         </div>
     );
 };
 Recipe.propTypes = {
     recipe: PropTypes.object.isRequired,
+    handleWantToCook: PropTypes.func.isRequired,
 }
 
 export default Recipe;
