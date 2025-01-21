@@ -9,8 +9,8 @@
         "200 g basil leaf",
         "400 g mushroom"
       ],
-      "preparing_time": "30 min",
-      "calories": "320 calories",
+      "preparing_time": 30,
+      "calories": 320,
       "recipe_image": "https://res.cloudinary.com/djjx7ln02/image/upload/v1737028536/food1_vicodv.jpg"
     },
     {
@@ -24,8 +24,8 @@
         "100 g cherry tomatoes",
         "50 g parmesan"
       ],
-      "preparing_time": "25 min",
-      "calories": "450 calories",
+      "preparing_time": 25,
+      "calories": 450,
       "recipe_image": "https://res.cloudinary.com/djjx7ln02/image/upload/v1737028780/food2_nuulci.jpg"
     },
     {
@@ -39,8 +39,8 @@
         "50 g lettuce",
         "50 g sour cream"
       ],
-      "preparing_time": "20 min",
-      "calories": "550 calories",
+      "preparing_time": 20,
+      "calories": 550,
       "recipe_image": "https://res.cloudinary.com/djjx7ln02/image/upload/v1737028883/food3_yxv2po.jpg"
     },
     {
@@ -53,8 +53,8 @@
         "1 lemon",
         "100 g spinach"
       ],
-      "preparing_time": "20 min",
-      "calories": "350 calories",
+      "preparing_time": 20,
+      "calories": 350,
       "recipe_image": "https://res.cloudinary.com/djjx7ln02/image/upload/v1737028969/food4_josijk.jpg"
     },
     {
@@ -67,8 +67,8 @@
         "150 g potatoes",
         "1 liter vegetable broth"
       ],
-      "preparing_time": "40 min",
-      "calories": "200 calories",
+      "preparing_time": 40,
+      "calories": 200,
       "recipe_image": "https://res.cloudinary.com/djjx7ln02/image/upload/v1737029065/food5_qsnlzk.jpg"
     },
     {
@@ -82,8 +82,8 @@
         "2 eggs",
         "200 g butter"
       ],
-      "preparing_time": "45 min",
-      "calories": "550 calories",
+      "preparing_time": 45,
+      "calories": 550,
       "recipe_image": "https://res.cloudinary.com/djjx7ln02/image/upload/v1737029173/food6_ajo48l.jpg"
     },
     {
@@ -96,8 +96,8 @@
         "100 g parmesan",
         "500 ml vegetable stock"
       ],
-      "preparing_time": "35 min",
-      "calories": "450 calories",
+      "preparing_time": 35,
+      "calories": 450,
       "recipe_image": "https://res.cloudinary.com/djjx7ln02/image/upload/v1737029259/food7_slcb6u.jpg"
     },
     {
@@ -111,8 +111,8 @@
         "30 g parmesan",
         "50 ml caesar dressing"
       ],
-      "preparing_time": "15 min",
-      "calories": "400 calories",
+      "preparing_time": 15,
+      "calories": 400,
       "recipe_image": "https://res.cloudinary.com/djjx7ln02/image/upload/v1737029385/food8_gyhesx.jpg"
     },
     {
@@ -126,8 +126,8 @@
         "50 g tomatoes",
         "50 ml red wine"
       ],
-      "preparing_time": "40 min",
-      "calories": "600 calories",
+      "preparing_time": 40,
+      "calories": 600,
       "recipe_image": "https://res.cloudinary.com/djjx7ln02/image/upload/v1737029476/food9_bvk6tj.jpg"
     },
     {
@@ -140,8 +140,8 @@
         "1 tbsp honey",
         "1 cup ice"
       ],
-      "preparing_time": "5 min",
-      "calories": "200 calories",
+      "preparing_time": 5,
+      "calories": 200,
       "recipe_image": "https://res.cloudinary.com/djjx7ln02/image/upload/v1737029561/food10_yx90mw.jpg"
     }
 ]

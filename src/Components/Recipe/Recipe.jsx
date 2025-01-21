@@ -23,8 +23,8 @@ const Recipe = ({recipe,handleWantToCook}) => {
             <hr />
             <div className='py-2'>
                 <div className='flex gap-5'>
-                    <p className='text-sm flex items-center gap-1'><GiAlarmClock /> {preparing_time}</p>
-                    <p className='text-sm'>{calories}</p>
+                    <p className='text-sm flex items-center gap-1'><GiAlarmClock /> {preparing_time} minutes</p>
+                    <p className='text-sm'>{calories} calories</p>
                 </div>
                 <button onClick={() =>handleWantToCook(recipe)} className='py-3 px-5 bg-green-400 rounded-full mt-4 font-semibold'>Want to cook</button>
             </div>
