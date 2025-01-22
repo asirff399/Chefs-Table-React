@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Order from "../Order/Order";
 import Recipe from "../Recipe/Recipe";
-import { addToLS, cookAddToLS} from "../../Utilities/localStorage";
+import { addToLS, cookAddToLS, getStoredFoods,getCooking} from "../../Utilities/localStorage";
 
 const Recipes = () => {
     const [recipes,setRecipes] = useState([])
@@ -14,6 +14,32 @@ const Recipes = () => {
         .then(data => setRecipes(data))
     },[])
 
+    useEffect(()=>{
+        if(recipes.length){
+            const storedRecipes = getStoredFoods()
+            const savedRecipe = []
+            
+            for(const id of storedRecipes){
+                const recipe = recipes.find(recipe => recipe.recipe_id === id)
+                if(recipe){
+                    savedRecipe.push(recipe)
+                }
+            }
+            setWtcook(savedRecipe)
+
+            const storedCooking = getCooking()
+            const savedCook = []
+            for(const id of storedCooking){
+                const cook = recipes.find(cook => cook.recipe_id === id)
+                if(cook){
+                    savedCook.push(cook)
+                }
+            }
+            setCooking(savedCook)
+        }
+    },[recipes])
+
+
     const handleWantToCook = (wcook) =>{
         const newWtcook = [...wtcook,wcook]
         setWtcook(newWtcook)
@@ -21,12 +47,14 @@ const Recipes = () => {
     }
 
     const handleCooking = (id) =>{
-        console.log(id)
-        const remaining = wtcook.filter(food => food.recipe_id !== id)
-        setWtcook(remaining)
-        const newCooking = [...cooking,id]
-        setCooking(newCooking)
-        cookAddToLS(id)
+        const selectedRecipe = wtcook.find(food => food.recipe_id === id)
+        if(selectedRecipe){
+            const remaining = wtcook.filter(food => food.recipe_id !== id)
+            setWtcook(remaining)
+            const newCooking = [...cooking,selectedRecipe]
+            setCooking(newCooking)
+            cookAddToLS(id)
+        }
     }
 
     return (
@@ -49,7 +77,7 @@ const Recipes = () => {
                     </div>
                 </div>
                 <div className="col-span-5">
-                    <Order handleCooking={handleCooking}></Order>
+                    <Order cooking={cooking} wtcook={wtcook} handleCooking={handleCooking}></Order>
                 </div>
             </div>
         </div>

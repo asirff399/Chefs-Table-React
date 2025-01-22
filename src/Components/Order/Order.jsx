@@ -1,26 +1,6 @@
 import PropTypes from 'prop-types'; 
 
-import { useEffect, useMemo, useState } from "react";
-
-const Order = ({handleCooking}) => {
-    const wtc = useMemo(() => JSON.parse(localStorage.getItem('foods')) || [], []) 
-    const cook = useMemo(() => JSON.parse(localStorage.getItem('cook')) || [], []) 
-    const wtc_len = wtc.length
-    const cook_len = cook.length
-    const [wtc_recipe,setWtc_recipe] = useState([])
-    const [cooking,setCooking] = useState([])
-
-    useEffect(()=>{
-        fetch('recipe.json')
-        .then(res=>res.json())
-        .then(data => {
-                const filteredRecipe = data.filter(recipe => wtc.includes(recipe.recipe_id))
-                setWtc_recipe(filteredRecipe)
-                const filteredCook = data.filter(food => cook.includes(food.recipe_id))
-                setCooking(filteredCook)
-            })
-    },[wtc,cook])
-
+const Order = ({cooking,wtcook,handleCooking}) => {
     const totalPrepairingTime = () =>{
         return cooking.reduce((time,item) => time + item.preparing_time,0)
     }
@@ -32,7 +12,7 @@ const Order = ({handleCooking}) => {
         <div className="sticky top-20 border-2 border-slate-200 rounded-xl">
             <div>
                 <div className="w-4/6 mx-auto my-2">
-                    <h1 className="text-center text-2xl font-semibold m-4 mt-7">Want to cook: {wtc_len}</h1>
+                    <h1 className="text-center text-2xl font-semibold m-4 mt-7">Want to cook: {wtcook.length}</h1>
                     <hr />
                 </div>
                 <table className="table-auto w-full border-collapse ">
@@ -46,8 +26,8 @@ const Order = ({handleCooking}) => {
                         </tr>
                     </thead>
                     <tbody className="bg-gray-100">
-                        {wtc_recipe.map(recipe => (
-                            <tr className="even:bg-gray-50" key={recipe.id}>
+                        {wtcook.map(recipe => (
+                            <tr className="even:bg-gray-50" key={recipe.recipe_id}>
                                 <td className="px-4 py-2">{recipe.recipe_id}</td>
                                 <td className="px-4 py-2">{recipe.recipe_name}</td>
                                 <td className="px-4 py-2">{recipe.preparing_time}</td>
@@ -61,7 +41,7 @@ const Order = ({handleCooking}) => {
             </div>
             <div className="mb-11">
                 <div className="w-4/6 mx-auto my-2">
-                    <h1 className="text-center text-2xl font-semibold m-4 mt-7">Currently cooking: {cook_len}</h1>
+                    <h1 className="text-center text-2xl font-semibold m-4 mt-7">Currently cooking: {cooking.length}</h1>
                     <hr />
                 </div>
                 <table className="table-auto w-full border-collapse ">
@@ -75,7 +55,7 @@ const Order = ({handleCooking}) => {
                     </thead>
                     <tbody className="bg-gray-100">
                         { cooking.map(food => (
-                            <tr key={food.id} className="even:bg-gray-50">
+                            <tr key={food.recipe_id} className="even:bg-gray-50">
                                 <td className="px-4 py-2">{food.recipe_id}</td>
                                 <td className="px-4 py-2">{food.recipe_name}</td>
                                 <td className="px-4 py-2">{food.preparing_time}</td>
@@ -95,6 +75,8 @@ const Order = ({handleCooking}) => {
     );
 };
 Order.propTypes = {
+    cooking: PropTypes.array.isRequired,
+    wtcook: PropTypes.array.isRequired,
     handleCooking: PropTypes.func.isRequired,
 }
 export default Order;

@@ -34,4 +34,4 @@ const cookAddToLS = (id) =>{
     saveFoodsToLS(remainingFoods)
 }
 
-export {addToLS,saveFoodsToLS,cookAddToLS}
+export {addToLS,saveFoodsToLS,cookAddToLS,getStoredFoods,getCooking}
